@@ -1,5 +1,6 @@
 # otto-klaus
-
+Link hosting: https://bd-dari.web.app/
+Acceso a home desde login - user: darigomez30@gmail.com pass: 123456
 ## Project setup
 ```
 npm install
