@@ -1,0 +1,70 @@
+<template>
+  <div v-if="editar" class="mb-5 pb-5 text-start">
+    <h2 class="text-center">Editar Datos</h2>
+    <label>Nombre</label>
+    <b-form-input v-model="jugueteEditar.nombre"></b-form-input>
+    <label>Stock</label>
+    <b-form-input v-model="jugueteEditar.stock" ></b-form-input>
+    <label>Precio</label>
+    <b-form-input v-model="jugueteEditar.precio"></b-form-input>
+    <b-button
+      size="sm"
+      @click="actualizar(jugueteEditar)"
+      class="my-1 agr-ju"
+      variant="success"
+      >Actualizar Información</b-button
+    >
+  </div>
+</template>
+
+<script>
+import { mapState, mapActions } from "vuex";
+
+export default {
+  name: "Editar",
+  data() {
+    return {
+      nombre: "",
+      stock: 0,
+      precio: 0,
+    };
+  },
+  computed: {
+    ...mapState(["editar", "jugueteEditar"]),
+  },
+  methods: {
+    ...mapActions(["updateProducto"]),
+    actualizar(juguete) {
+      this.updateProducto(juguete);
+    },
+  },
+};
+</script>
+<style scoped>
+  h2{
+    font-family: 'Londrina Solid';
+    color: #c1189f;
+  }
+  .form-control{
+    border: 1px solid #d99dcd;
+    border-radius: 10px;
+    margin: 5px 0;
+    padding: 10px;
+}
+label{
+    font-family: 'Londrina Solid';
+    font-weight: 300;
+}
+.agr-ju{
+    background: #b2e1d9;
+    border: 0;
+    color: #fff;
+    font-weight: 400;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 28px;
+    font-family: 'Londrina Solid';
+    width: 20%;
+
+}
+</style>
